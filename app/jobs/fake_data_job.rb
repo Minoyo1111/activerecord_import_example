@@ -4,7 +4,7 @@ class FakeDataJob < ApplicationJob
   def perform
     CSV.open(csv_path, "w") do |csv|
       csv << ["Name", "Location", "Level"]
-      50000.times do |n|
+      5.times do |n|
         csv << [
           Faker::Pokemon.name,
           Faker::Pokemon.location,
