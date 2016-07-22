@@ -1,12 +1,10 @@
 class FakeDataJob < ApplicationJob
-  require 'csv'
   queue_as :default
 
-  def perform
-    path = File.join Rails.root, "fake_data.csv"
-    CSV.open(path, "w") do |csv|
+  def perform(num_of_data)
+    CSV.open(csv_path, "w") do |csv|
       csv << ["Name", "Location", "Level"]
-      50000.times do |n|
+      num_of_data.times do |n|
         csv << [
           Faker::Pokemon.name,
           Faker::Pokemon.location,
