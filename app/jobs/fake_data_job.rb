@@ -1,10 +1,10 @@
 class FakeDataJob < ApplicationJob
   queue_as :default
 
-  def perform
+  def perform(num_of_data)
     CSV.open(csv_path, "w") do |csv|
       csv << ["Name", "Location", "Level"]
-      5.times do |n|
+      num_of_data.times do |n|
         csv << [
           Faker::Pokemon.name,
           Faker::Pokemon.location,
