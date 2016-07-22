@@ -9,6 +9,7 @@ class DataImportBenchmarkJob < ApplicationJob
       x.report("B:")   { ImportDataBJob.new.perform }
       x.report("C:")   { ImportDataCJob.new.perform }
       x.report("D:")   { ImportDataDJob.new.perform }
+      x.report("E:")   { ImportDataEJob.new.perform }
     end
   end
 end
